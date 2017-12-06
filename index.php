@@ -8,6 +8,7 @@ error_reporting(E_ALL);
 
 include_once "autoload.php";
 
+
 //put your database credentials here
 include_once "database.php";
 
