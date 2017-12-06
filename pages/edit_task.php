@@ -25,12 +25,12 @@
 
 <form action="index.php?page=tasks&action=save&id=<?php echo $data->id; ?>" method="post">
 
-    ID: <input type="text" name="id" value="<?php echo $data->id; ?>" readonly><br>
-    Email: <input type="text" name="email" value="<?php echo $data->owneremail; ?>"readonly><br>
-    Task Created Date: <input type="text" name="createddate" value="<?php echo $data->createddate; ?>"readonly><br>
-    Task Due Date: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>"readonly><br>
-    Task Message: <input type="text" name="message" value="<?php echo $data->message; ?>"readonly><br>
-    Whether task has been completed?: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"readonly><br>
+    ID: <input type="text" name="id" value="<?php echo $data->id; ?>" ><br>
+    Email: <input type="text" name="email" value="<?php echo $data->owneremail; ?>"><br>
+    Task Created Date: <input type="text" name="createddate" value="<?php echo $data->createddate; ?>"><br>
+    Task Due Date: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>"><br>
+    Task Message: <input type="text" name="message" value="<?php echo $data->message; ?>"><br>
+    Whether task has been completed?: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"><br>
     <input type="submit" value="Submit form">
 </form>
 

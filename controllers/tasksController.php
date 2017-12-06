@@ -48,6 +48,7 @@ class tasksController extends http\controller
     //this is the function to view edit record form
     public static function edit()
     {
+        //echo'hi';
         $record = todos::findOne($_REQUEST['id']);
         self::getTemplate('edit_task', $record);
     }
