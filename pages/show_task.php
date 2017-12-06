@@ -23,7 +23,7 @@
 //print_r($data);
 ?>
 
-<form action="index.php?page=tasks&action=save&id=<?php echo $data->id; ?>" method="post">
+<form action="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>" method="post">
 
     ID: <input type="text" name="id" value="<?php echo $data->id; ?>" readonly><br>
     Email: <input type="text" name="email" value="<?php echo $data->owneremail; ?>"readonly><br>
@@ -31,7 +31,7 @@
     Task Due Date: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>"readonly><br>
     Task Message: <input type="text" name="message" value="<?php echo $data->message; ?>"readonly><br>
     Whether task has been completed?: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"readonly><br>
-    <input type="submit" value="Submit form">
+    <input type="submit" value="Edit">
 </form>
 
 <form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
