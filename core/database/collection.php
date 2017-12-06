@@ -37,6 +37,8 @@ abstract class collection
         if ($statement->rowCount() > 0) {
             $statement->setFetchMode(\PDO::FETCH_CLASS, $class);
             $recordsSet = $statement->fetchAll();
+            //echo 'hiiii';
+            //print_r($recordsSet);
 
         } else {
             $recordsSet = NULL;

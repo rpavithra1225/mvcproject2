@@ -29,8 +29,10 @@ class tasksController extends http\controller
         $userID='1';
 
         $records = todos::findTasksbyID($userID);
-
-        self::getTemplate('all_tasks', $records);
+        if($records != null) {
+            self::getTemplate('all_tasks', $records);
+        }else
+            echo 'You have finished all your tasks in the list!';
 
     }
     //to call the show function the url is called with a post to: index.php?page=task&action=create
