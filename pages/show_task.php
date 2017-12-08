@@ -22,7 +22,7 @@
 
 //print_r($data);
 ?>
-
+<!--
 
 <form>
     ID: <input type="text" name="id" value="<?php echo $data->id; ?>" readonly><br>
@@ -32,7 +32,8 @@
     Task Message: <input type="text" name="message" value="<?php echo $data->message; ?>"readonly><br>
     Whether task has been completed?: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"readonly><br>
     <input type="submit" value="Edit" formmethod="post" formaction="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>">
-</form>
+</form>-->
+
 
 
 <form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form2">

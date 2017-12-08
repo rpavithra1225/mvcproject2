@@ -23,7 +23,7 @@
 //print_r($data);
 ?>
 
-<form action="index.php?page=tasks&action=save&id=<?php echo $data->id; ?>" method="post">
+<form action="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>" method="post">
 
     ID: <input type="text" name="id" value="<?php echo $data->id; ?>" ><br>
     Email: <input type="text" name="email" value="<?php echo $data->owneremail; ?>"><br>

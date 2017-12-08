@@ -63,6 +63,24 @@ class routes
         $route->controller = 'tasksController';
         $route->method = 'all';
         $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'edit';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'edit';
+        $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'edit';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'save';
+        $routes[] = $route;
+
+
         //GET METHOD index.php?page=accounts&action=all
 //https://web.njit.edu/~kwilliam/mvc/index.php?page=accounts&action=all
 
