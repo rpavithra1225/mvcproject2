@@ -65,7 +65,6 @@ class tasksController extends http\controller
     public static function save()
     {
         $todo = todos::findOne($_REQUEST['id']);
-        print_r($_POST);
         $todo->id=$_POST['id'];
         $todo->owneremail=$_POST['owneremail'];
         $todo->ownerid=$_POST['ownerid'];
@@ -74,8 +73,8 @@ class tasksController extends http\controller
         $todo->message=$_POST['message'];
         $todo->isdone=$_POST['isdone'];
         $todo->save();
-        //header("Location: index.php?page=tasks&action=all");
-        print_r($_POST);
+        header("Location: index.php?page=tasks&action=all");
+        //print_r($_POST);
     }
 
     //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.

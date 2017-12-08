@@ -23,15 +23,16 @@
 //print_r($data);
 ?>
 
-<form action="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>" method="post">
+<form action="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>" method="post" id="form2">
 
-    ID: <input type="text" name="id" value="<?php echo $data->id; ?>" ><br>
-    Email: <input type="text" name="email" value="<?php echo $data->owneremail; ?>"><br>
+    Id: <input type="text" name="id" value="<?php echo $data->id; ?>" ><br>
+    Email: <input type="text" name="owneremail" value="<?php echo $data->owneremail; ?>"><br>
+    Owner Id: <input type="text" name="ownerid" value="<?php echo $data->ownerid; ?>"><br>
     Task Created Date: <input type="text" name="createddate" value="<?php echo $data->createddate; ?>"><br>
     Task Due Date: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>"><br>
     Task Message: <input type="text" name="message" value="<?php echo $data->message; ?>"><br>
     Whether task has been completed?: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"><br>
-    <input type="submit" value="Submit form">
+    <input type="submit" form = "form2" value="Submit">
 </form>
 
 <form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">

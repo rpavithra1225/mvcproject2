@@ -22,19 +22,22 @@
 
 //print_r($data);
 ?>
-<!--
 
-<form>
+
+<form id="form1">
+
     ID: <input type="text" name="id" value="<?php echo $data->id; ?>" readonly><br>
-    Email: <input type="text" name="email" value="<?php echo $data->owneremail; ?>"readonly><br>
-    Task Created Date: <input type="text" name="createddate" value="<?php echo $data->createddate; ?>"readonly><br>
-    Task Due Date: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>"readonly><br>
-    Task Message: <input type="text" name="message" value="<?php echo $data->message; ?>"readonly><br>
-    Whether task has been completed?: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"readonly><br>
-    <input type="submit" value="Edit" formmethod="post" formaction="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>">
-</form>-->
+    Email: <input type="text" name="email" value="<?php echo $data->owneremail; ?>" readonly><br>
+    Owner Id: <input type="text" name="ownerid" value="<?php echo $data->ownerid; ?>" readonly><br>
+    Task Created Date: <input type="text" name="createddate" value="<?php echo $data->createddate; ?>" readonly><br>
+    Task Due Date: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>" readonly><br>
+    Task Message: <input type="text" name="message" value="<?php echo $data->message; ?>" readonly><br>
+    Whether task has been completed?: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>" readonly><br>
+</form>
 
-
+<input type="submit" value="Edit" id="form1" 
+       onclick="window.location='index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>';">
+<br>
 
 <form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form2">
     <button type="submit" name="delete" form="form2" value="delete">Delete</button>
@@ -43,6 +46,11 @@
 
 
 
-<script src="js/scripts.js"></script>
+<script type="text/javascript" charset="UTF-8">
+    function edit_task(){
+
+    } 
+</script>
+
 </body>
 </html>
