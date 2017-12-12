@@ -6,7 +6,6 @@
  * Time: 5:32 PM
  */
 
-
 //each page extends controller and the index.php?page=tasks causes the controller to be called
 class accountsController extends http\controller
 {
@@ -60,7 +59,7 @@ class accountsController extends http\controller
             //this creates the password
             //this is a mistake you can fix...
             //Turn the set password function into a static method on a utility class.
-            $user->password = utility\loginHelper::setPassword($_POST['password']);
+            $user->password = \utility\loginHelper::setPassword($_POST['password']);
             $user->save();
 
             //you may want to send the person to a
@@ -125,7 +124,7 @@ class accountsController extends http\controller
             echo 'user not found';
         } else {
 
-            if(utility\loginHelper::checkPassword($_POST['password']) == TRUE) {
+            if($user->checkPassword($_POST['password']) == TRUE) {
 
                 echo 'login';
 

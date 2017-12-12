@@ -3,19 +3,12 @@
 namespace utility;
 //namespace MyProject\mvcName;
 
-class htmlTable
+class loginHelper
 {
-    public function setPassword($password) {
+    public static function setPassword($password) {
 
         $password = crypt($password);
         return $password;
-
-    }
-
-    public function checkPassword($LoginPassword) {
-
-        return hash_equals($this->password,crypt($LoginPassword,$this->password));
-
 
     }
 }
