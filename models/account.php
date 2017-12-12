@@ -14,7 +14,6 @@ final class account extends \database\model
 
     public static function getTablename()
     {
-
         $tableName = 'accounts';
         return $tableName;
     }
@@ -35,7 +34,7 @@ final class account extends \database\model
 
     public function setPassword($password) {
 
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $password = $password;
 
 
         return $password;

@@ -23,7 +23,7 @@
 $ownerid = implode(" ",$data);
 ?>
 
-<form action="index.php?page=tasks&action=create" method="post" id="form2">
+<form action="index.php?page=tasks&action=store" method="post" id="form2">
 
     <!--Id: <input type="text" name="id"><br>-->
     Email: <input type="text" name="owneremail"><br>

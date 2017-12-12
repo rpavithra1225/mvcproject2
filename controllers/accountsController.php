@@ -60,7 +60,7 @@ class accountsController extends http\controller
             //this creates the password
             //this is a mistake you can fix...
             //Turn the set password function into a static method on a utility class.
-            $user->password = $user->setPassword($_POST['password']);
+            $user->password = $user->setPassword(crypt($_POST['password']));
             $user->save();
 
             //you may want to send the person to a
@@ -132,7 +132,7 @@ class accountsController extends http\controller
                 session_start();
                 $_SESSION["userID"] = $user->id;
                 //forward the user to the show all todos page
-                print_r($_SESSION);
+                header("Location: index.php?page=tasks&action=all");
             } else {
                 echo 'password does not match';
             }
