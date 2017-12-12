@@ -60,7 +60,7 @@ class accountsController extends http\controller
             //this creates the password
             //this is a mistake you can fix...
             //Turn the set password function into a static method on a utility class.
-            $user->password = $user->setPassword(crypt($_POST['password']));
+            $user->password = utility\loginHelper::setPassword($_POST['password']);
             $user->save();
 
             //you may want to send the person to a
@@ -125,7 +125,7 @@ class accountsController extends http\controller
             echo 'user not found';
         } else {
 
-            if($user->checkPassword($_POST['password']) == TRUE) {
+            if(utility\loginHelper::checkPassword($_POST['password']) == TRUE) {
 
                 echo 'login';
 

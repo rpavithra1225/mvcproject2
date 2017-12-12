@@ -43,7 +43,7 @@ final class account extends \database\model
 
     public function checkPassword($LoginPassword) {
 
-        return password_verify($LoginPassword, $this->password);
+        return hash_equals($this->password,crypt($LoginPassword,$this->password));
 
 
     }
