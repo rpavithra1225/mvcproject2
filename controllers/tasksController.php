@@ -42,7 +42,9 @@ class tasksController extends http\controller
 
     public static function create()
     {
-        print_r($_POST);
+        session_start();
+        $record['ownerid'] = 1; //$_SESSION['userID'];
+        self::getTemplate('create_task',$record);
     }
 
     //this is the function to view edit record form
@@ -56,9 +58,16 @@ class tasksController extends http\controller
     //this would be for the post for sending the task edit form
     public static function store()
     {
-        $record = todos::findOne($_REQUEST['id']);
-        $record->body = $_REQUEST['body'];
-        $record->save();
+        $todo = new todo();
+        $todo->id='';
+        $todo->owneremail=$_POST['owneremail'];
+        $todo->ownerid=$_POST['ownerid'];
+        $todo->createddate=$_POST['createddate'];
+        $todo->duedate=$_POST['duedate'];
+        $todo->message=$_POST['message'];
+        $todo->isdone=$_POST['isdone'];
+        $todo->save();
+        header("Location: index.php?page=tasks&action=all");
         //print_r($_POST);
     }
 
