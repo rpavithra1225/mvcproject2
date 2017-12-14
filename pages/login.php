@@ -7,6 +7,7 @@
 <head>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 </head>
 <body>
 <div id="form">
@@ -36,17 +37,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--
+
                                 <div class="row">
 
                                     <div class="col-xs-12 col-sm-6">
                                         <div class="form-group">
                                             <label>Birthday<span class="req">*</span> </label>
-                                            <input type="text" class="form-control" id="birthday" required data-validation-required-message="Please enter your birthday." autocomplete="off">
-                                                <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                            <p class="help-block text-danger"></p>
+                                            <input type="text" class="form-control" name = "birthdate" id="birthday" required data-validation-required-message="Please enter your birthday." autocomplete="off">
+                                                <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
@@ -56,19 +54,6 @@
                                             <p class="help-block text-danger"></p>
                                         </div>
                                     </div>
-                                <!-- </div> -->
-                                <div class="form-group">
-                                    <label> Your Email<span class="req">*</span> </label>
-                                    <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address." autocomplete="off">
-                                    <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
-                                                </span>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label> Your Phone<span class="req">*</span> </label>
-                                    <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number." autocomplete="off">
-                                    <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
                                     <label> Your Email<span class="req">*</span> </label>
@@ -120,6 +105,13 @@
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    </body>
+</body>
 
     <script src="js/login.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('input[name="birthdate"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true
+
+    });</script>

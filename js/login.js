@@ -43,6 +43,8 @@ $('.tab a').on('click', function (e) {
 
 });
 
-$(function () {
-    $('#datetimepicker1').datetimepicker();
+$('input[name="birthdate"]').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                format: "yyyy-mm-dd"
 });
