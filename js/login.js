@@ -23,6 +23,14 @@ $('#form').find('input, textarea').on('keyup blur focus', function (e) {
         else if( $this.val() !== '' ) {
             label.addClass('highlight');
         }
+    } else if (e.type === 'daterangepicker') {
+
+        if( $this.val() === '' ) {
+            label.removeClass('active highlight');
+        }
+        else if( $this.val() !== '' ) {
+            label.addClass('highlight');
+        }
     }
 
 });
@@ -43,8 +51,26 @@ $('.tab a').on('click', function (e) {
 
 });
 
-$('input[name="birthdate"]').daterangepicker({
-                singleDatePicker: true,
-                showDropdowns: true,
-                format: "yyyy-mm-dd"
+$('#birthday').daterangepicker({
+    singleDatePicker: true,
+    //autoUpdateInput: true,
+    showDropdowns: true,
+    "locale": {
+        "format": "YYYY-MM-DD",
+        "separator": "-",
+    }
 });
+
+//$('input[name="birthday"]').datepicker({
+                //singleDatePicker: true,
+                //autoUpdateInput: true,
+                //showDropdowns: true,
+    //format: 'yyyy-mm-dd hh:ii',
+                //useCurrent: false
+//});
+
+$('#birthday').val('')
+
+//$('input[name="birthday"]').val('');
+
+

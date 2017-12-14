@@ -4,10 +4,8 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
+    <title>Task Management Application
+    </title>
     <link rel="stylesheet" href="css/styles.css?v=1.0">
 
     <!--[if lt IE 9]>
@@ -28,6 +26,9 @@
     Password: <input type="password" name="password"><br>
     <input type="submit" value="Submit form">
 </form>
+<input type="text" name="birthdate" value="10/24/1984" />
+
+
 
 
 <script src="js/scripts.js"></script>

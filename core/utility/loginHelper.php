@@ -7,7 +7,7 @@ class loginHelper
 {
     public static function setPassword($password) {
 
-        $password = crypt($password);
+        $password = password_hash($password, PASSWORD_DEFAULT);
         return $password;
 
     }
