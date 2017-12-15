@@ -22,11 +22,9 @@ class tasksController extends http\controller
 
     public static function all()
     {
-        $records = todos::findAll();
+        //$records = todos::findAll();
         session_start();
-
         $userID = $_SESSION['userID'];
-        //$userID='2';
 
         $records = todos::findTasksbyID($userID);
         if($records != null) {

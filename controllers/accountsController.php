@@ -142,6 +142,10 @@ class accountsController extends http\controller
     }
 
     public static function logout(){
+        if (!isset($_SESSION))
+        {
+            session_start();
+        }
         session_destroy();
         header("Location: index.php?page=homepage");
     }

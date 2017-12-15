@@ -1,31 +1,47 @@
-<div class="navbar navbar-inverse nav">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="/">CMS</a>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/navbar.css">
+</head>
 
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="divider-vertical"></li>
-                    <li><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
-                </ul>
-                <div class="pull-right">
-                    <ul class="nav pull-right">
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/user/preferences"><i class="icon-cog"></i> Preferences</a></li>
-                                <li><a href="/help/support"><i class="icon-envelope"></i> Contact Support</a></li>
-                                <li class="divider"></li>
-                                <li><a href="/auth/logout"><i class="icon-off"></i> Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php?homepage"><i class="icon-home icon-white"></i>Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?page=tasks&action=all">My Tasks</a>
+            </li>
+        </ul>
     </div>
-</div>
+    <div class="pull-right">
+        <ul class="nav pull-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php?page=accounts&action=show"><i class="icon-user icon-white"></i>Hello,User <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?page=tasks&action=all">Logout</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Welcome,User
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="index.php?page=accounts&action=edit"><i class="icon-user"></i>View Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="index.php?page=accounts&action=logout"><i class="icon-off"></i> Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+</body>
+
+<main role="main" class="container">
+    <div class="starter-template">
