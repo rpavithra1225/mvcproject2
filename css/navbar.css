@@ -18,10 +18,11 @@
 .navbar .navbar-brand:focus {
     color: #0b0d56;
 }
-.navbar .navbar-text {
+.navbar .navbar-text, {
     color: #fcfdfd;
 }
-.navbar .navbar-nav .nav-link {
+.navbar .navbar-nav .nav-link,
+.navbar.nav pull-right.nav-link{
     color: #fcfdfd;
     border-radius: .25rem;
     margin: 0 0.25em;
@@ -66,7 +67,7 @@
     color: #fcfdfd;
 }
 .navbar .navbar-collapse,
-.navbar .navbar-form {
+.navbar .navbar-form,.navbar.pull-right {
     border-color: #fcfdfd;
 }
 .navbar .navbar-link {
@@ -142,4 +143,9 @@
 .navbar-expand .navbar-nav .show .dropdown-menu .dropdown-item.active {
     color: #0b0d56;
     background-color: #edf7f7;
+}
+
+#navbarDropdown {
+    color: #fcfdfd;
+    padding-right:40px;
 }

@@ -16,8 +16,6 @@ class accountsController extends http\controller
     {
         session_start();
         $record = accounts::findOne($_SESSION['userID']);
-        //print_r($_REQUEST);
-        //print_r($record);
         self::getTemplate('show_account', $record);
     }
 
