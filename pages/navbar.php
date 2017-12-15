@@ -22,18 +22,12 @@
     </div>
     <div class="pull-right">
         <ul class="nav pull-right">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?page=accounts&action=show"><i class="icon-user icon-white"></i>Hello,User <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?page=tasks&action=all">Logout</a>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Welcome,User
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="index.php?page=accounts&action=edit"><i class="icon-user"></i>View Profile</a>
+                    <a class="dropdown-item" href="index.php?page=accounts&action=show"><i class="icon-user"></i>View Profile</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.php?page=accounts&action=logout"><i class="icon-off"></i> Logout</a>
                 </div>
