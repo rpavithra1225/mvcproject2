@@ -58,24 +58,27 @@ class htmlTable
     public static function generateListFromArray($array){
         //print_r($array[0]);
         $referingPage = $_REQUEST['page'];
-        $tableGen = '<div class="panel-body">';
+        $tableGen = '<div class="container-fluid">';
         $tableGen.= '<ul class="list-group">';
         foreach ($array as $record) {
-            $tableGen .= '<li class="list-group-item">';
+            $tableGen .= '<li class="list-group-item" style="border-style:none; border-bottom: 2px dotted rgba(0,0,0,.125); ">';
            // foreach ($record as $key => $value) {
                 //print_r($record);
                 //echo ($record->message);
-                $tableGen .= '<div class="checkbox">
-                                <input type="checkbox" />
-                                <label for="checkbox">';
+                $tableGen .= "<div class='row'><div class='checkbox''>
+                                <input type='checkbox' />
+                                <label for='checkbox'>";
                 $tableGen.= $record->message;
-                $tableGen.='</label>
+                $tableGen.="</label>
                             </div>
-                            <div class="pull-right action-buttons">
-                                <a href="http://www.jquery2dotnet.com"><i class="material-icons">mode edit</i></a>
-                                <a href="http://www.jquery2dotnet.com" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
-                                <a href="http://www.jquery2dotnet.com" class="flag"><span class="glyphicon glyphicon-flag"></span></a>
-                            </div>';
+                            <div class='float-md-right'>";
+                $tableGen.="<a href='index.php?page=tasks&action=delete&id=".$record->id."' method='POST'>";
+                $tableGen.="<img src='img/delete.jpg' width='20' height='20' alt='' align='right'></a>";
+                $tableGen.="<a href='index.php?page=tasks&action=edit&id=".$record->id."'>";
+                $tableGen.="<img src='img/edit.png' width='20' height='20' alt='' align='right'></a>";
+                $tableGen.="<a href='index.php?page=tasks&action=show&id=".$record->id."'>";
+                $tableGen.="<img src='img/view.png' width='20' height='20' alt='' align='right'></a>";
+                $tableGen.="</div></div>";
 
 
                /* if ($key == 'id') {
@@ -86,7 +89,7 @@ class htmlTable
             //}
             $tableGen .= '</li>';
         }
-        $tableGen.='</ul> </div>';
+        $tableGen.='</ul> </div></div>';
         return $tableGen;
     }
 }

@@ -8,4 +8,3 @@
     <!-- Bootstrap CSS -->
 
 </head>
-<body>
