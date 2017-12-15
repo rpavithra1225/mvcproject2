@@ -119,7 +119,7 @@ class accountsController extends http\controller
         //after you login you can use the header function to forward the user to a page that displays their tasks.
         //        $record = accounts::findUser($_POST['email']);
 
-        $user = accounts::findUserbyEmail($_REQUEST['email']);
+       $user = accounts::findUserbyEmail($_REQUEST['email']);
 
 
         if ($user == FALSE) {
