@@ -73,9 +73,9 @@ class htmlTable
                             </div>
                             <div class='float-md-right'>";
                 $tableGen.="<a href='index.php?page=tasks&action=delete&id=".$record->id."' method='POST'>";
-                $tableGen.="<img src='img/delete.jpg' width='20' height='20' alt='' align='right'></a>";
+                $tableGen.="<img src='img/delete1.png' width='20' height='20' alt='' align='right'></a>";
                 $tableGen.="<a href='index.php?page=tasks&action=edit&id=".$record->id."'>";
-                $tableGen.="<img src='img/edit.png' width='20' height='20' alt='' align='right'></a>";
+                $tableGen.="<img src='img/edit1.png' width='20' height='20' alt='' align='right'></a>";
                 $tableGen.="<a href='index.php?page=tasks&action=show&id=".$record->id."'>";
                 $tableGen.="<img src='img/view.png' width='20' height='20' alt='' align='right'></a>";
                 $tableGen.="</div></div>";
