@@ -26,7 +26,7 @@
 
 <form id="form1">
 
-    ID: <input type="text" name="id" value="<?php echo $data->id; ?>" readonly><br>
+    ID: <input type="text" name="id" value="<?php {echo $data->id;} ?>" readonly><br>
     Email: <input type="text" name="email" value="<?php echo $data->owneremail; ?>" readonly><br>
     Owner Id: <input type="text" name="ownerid" value="<?php echo $data->ownerid; ?>" readonly><br>
     Task Created Date: <input type="text" name="createddate" value="<?php echo $data->createddate; ?>" readonly><br>
