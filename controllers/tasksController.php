@@ -27,10 +27,10 @@ class tasksController extends http\controller
         $userID = $_SESSION['userID'];
 
         $records = todos::findTasksbyID($userID);
-        if($records != null) {
+        //if($records != null) {
             self::getTemplate('all_tasks', $records);
-        }else
-            echo 'You have finished all your tasks in the list!';
+        //}else
+           // echo 'You have finished all your tasks in the list!';
 
     }
     //to call the show function the url is called with a post to: index.php?page=task&action=create
@@ -41,8 +41,8 @@ class tasksController extends http\controller
     public static function create()
     {
         session_start();
-        $record['ownerid'] = $_SESSION['userID'];
-        self::getTemplate('create_task',$record);
+        //$record['ownerid'] = $_SESSION['userID'];
+        self::getTemplate('create_task');
     }
 
     //this is the function to view edit record form
@@ -56,18 +56,21 @@ class tasksController extends http\controller
     //this would be for the post for sending the task edit form
     public static function store()
     {
+        $todo = null;
+        session_start();
+        if(isset($_POST['id'])){
+            $todo = todos::findOne($_POST['id']);
+        }
 
-        $todo = todos::findOne($_POST['ownerid']);
-
-        if($todo == FALSE) {
+        if(is_null($todo)) {
             $todo = new todo();
             $todo->id = '';
         } else {
-            $todo->id=$_POST['ownerid'];
+            $todo->id=$_POST['id'];
         }
             $todo->owneremail = $_POST['owneremail'];
-            $todo->ownerid = $_POST['ownerid'];
-            $todo->createddate = $_POST['createddate'];
+            $todo->ownerid = $_SESSION['userID'];
+            $todo->createddate = date("Y-m-d");
             $todo->duedate = $_POST['duedate'];
             $todo->message = $_POST['message'];
             $todo->isdone = $_POST['isdone'];

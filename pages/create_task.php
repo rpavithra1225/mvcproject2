@@ -1,40 +1,75 @@
-<!doctype html>
 
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-
-<?php
+<!-- /*
+//
 //New task has to be linked to the current session user id
 //Hence, Owner id field is non-editable and derived from session id.
-$ownerid = implode(" ",$data);
+//$ownerid = implode(" ",$data);
+//*/ -->
+
+<?php
+include 'header.php';
+include 'navbar.php';
+//include 'todolistheader.php';
 ?>
 
-<form action="index.php?page=tasks&action=store" method="post" id="form2">
+<div class="container" id="formcon">
+    <div class="row">
+        <div class="mx-auto col-md-8">
+            <!-- form user info -->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Add New Task</h4>
+                </div>
+                <div class="card-body">
+                    <form class="form" role="form" autocomplete="off" id="form1">
+                        <div class="form-group row">
+                            <label class="col-lg-5 col-form-label form-control-label">Message</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name="message" id="message" required data-validation-required-message="Please enter task message." autocomplete="off"
+                                       placeholder="Enter Task Details" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-5 col-form-label form-control-label">Task Due Date</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name="duedate" id="duedate" required data-validation-required-message="Please enter due date." autocomplete="off"
+                                       placeholder="Enter Task Duedate" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-5 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-6">
+                                <input type="email" class="form-control" name="email" id="email" required data-validation-required-message="Please enter email address." autocomplete="off"
+                                       placeholder="Enter Task Owner Email"  >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-5 col-form-label form-control-label">Whether Task has been completed or not?</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name = "isdone" id="isdone" required data-validation-required-message="Please enter task completion details." autocomplete="off"
+                                       placeholder="Enter Task Completion Details">
+                            </div>
+                        </div>
 
-    <!--Id: <input type="text" name="id"><br>-->
-    Email: <input type="text" name="owneremail"><br>
-    Owner Id: <input type="text" name="ownerid" value="<?php echo $ownerid; ?>" readonly><br>
-    Task Created Date: <input type="text" name="createddate"><br>
-    Task Due Date: <input type="text" name="duedate"><br>
-    Task Message: <input type="text" name="message"><br>
-    Whether task has been completed?: <input type="text" name="isdone"><br>
-    <input type="submit" form = "form2" value="Submit">
-</form>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-7" id="buttondiv">
+                                <!-- <button type="button" id="form1" class="btn btn-secondary" value="Cancel"style="border-style:none; background:red; color: #fff">-->
+                                <button type="submit" id="form1" formaction="index.php?page=tasks&action=store" formmethod="POST" class="btn btn-primary btn-sm" style="border-style:none; background:#3ce7d0; color: #fff;
+                                height:30px;width:150px;">SAVE</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /form user info -->
+        </div>
+    </div>
+</div>
 
-<script src="js/scripts.js"></script>
-</body>
-</html>
+<?php
+//print utility\htmlTable::genarateTableFromMultiArray($data);
+include 'navbarfoot.php';
+include 'footer.php';
+
+?>

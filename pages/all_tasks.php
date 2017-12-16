@@ -1,12 +1,10 @@
 <?php
     include 'header.php';
     include 'navbar.php';
-    include 'todolistheader.php';
        //print utility\htmlTable::genarateTableFromMultiArray($data);
-        print utility\htmlTable::generateListFromArray($data);
-        include 'add_task_btn_render.php';
-        include 'navbarfoot.php';
-        include 'footer.php';
+    print utility\htmlTable::generateListFromArray($data);
+    include 'add_task_btn_render.php';
+    include 'navbarfoot.php';
 
 ?>
     <!--<form action="index.php?page=tasks&action=create" id="form1">

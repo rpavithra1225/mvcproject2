@@ -58,38 +58,46 @@ class htmlTable
     public static function generateListFromArray($array){
         //print_r($array[0]);
         $referingPage = $_REQUEST['page'];
-        $tableGen = '<div class="container-fluid">';
-        $tableGen.= '<ul class="list-group">';
-        foreach ($array as $record) {
-            $tableGen .= '<li class="list-group-item" style="border-style:none; border-bottom: 2px dotted rgba(0,0,0,.125); ">';
-           // foreach ($record as $key => $value) {
+        $tableGen = '';
+        if($array!=null) {
+            $tableGen .="<div class=\"container\" id=\"tablecon\"> <div class=\"row\"><div class=\"panel-heading\">To-Do List</div>";
+            $tableGen .= '<div class="container-fluid">';
+            $tableGen.= '<ul class="list-group">';
+
+            foreach ($array as $record) {
+                $tableGen .= '<li class="list-group-item" style="border-style:none; border-bottom: 2px dotted rgba(0,0,0,.125); ">';
+                // foreach ($record as $key => $value) {
                 //print_r($record);
                 //echo ($record->message);
                 $tableGen .= "<div class='row' id='tablerow'><div class='checkbox''>
                                 <input type='checkbox' />
                                 <label for='checkbox'>";
-                $tableGen.= $record->message;
-                $tableGen.="</label>
+                $tableGen .= $record->message;
+                $tableGen .= "</label>
                             </div>
                             <div class='float-md-right'>";
-                $tableGen.="<a href='index.php?page=tasks&action=delete&id=".$record->id."' method='POST'>";
-                $tableGen.="<img src='img/delete1.png' width='20' height='20' alt='' align='right'></a>";
-                $tableGen.="<a href='index.php?page=tasks&action=edit&id=".$record->id."'>";
-                $tableGen.="<img src='img/edit1.png' width='20' height='20' alt='' align='right'></a>";
-                $tableGen.="<a href='index.php?page=tasks&action=show&id=".$record->id."'>";
-                $tableGen.="<img src='img/view.png' width='20' height='20' alt='' align='right'></a>";
-                $tableGen.="</div></div>";
+                //echo $record->id;
+                $tableGen .= "<a href='index.php?page=tasks&action=delete&id=" . $record->id . "' method='POST'>";
+                $tableGen .= "<img src='img/delete1.png' width='20' height='20' alt='' align='right'></a>";
+                $tableGen .= "<a href='index.php?page=tasks&action=edit&id=" . $record->id . "'>";
+                $tableGen .= "<img src='img/edit1.png' width='20' height='20' alt='' align='right'></a>";
+                $tableGen .= "<a href='index.php?page=tasks&action=show&id=" . $record->id . "' method='POST'>";
+                $tableGen .= "<img src='img/view.png' width='20' height='20' alt='' align='right'></a>";
+                $tableGen .= "</div></div>";
 
 
-               /* if ($key == 'id') {
-                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a></td>';
-                } else {
-                    $tableGen .= '<td>' . $value . '</td>';
-                }*/
-            //}
-            $tableGen .= '</li>';
-        }
-        $tableGen.='</ul> </div></div>';
+                /* if ($key == 'id') {
+                     $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a></td>';
+                 } else {
+                     $tableGen .= '<td>' . $value . '</td>';
+                 }*/
+                //}
+                $tableGen .= '</li>';
+            }
+
+        $tableGen.='</ul> </div>';
+    }
+        $tableGen.= '</div>';
         return $tableGen;
     }
 }
