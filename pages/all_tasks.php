@@ -2,10 +2,7 @@
     include 'header.php';
     include 'navbar.php';
     include 'todolistheader.php';
-?>
-
-<?php
-        //print utility\htmlTable::genarateTableFromMultiArray($data);
+       //print utility\htmlTable::genarateTableFromMultiArray($data);
         print utility\htmlTable::generateListFromArray($data);
         include 'add_task_btn_render.php';
         include 'navbarfoot.php';

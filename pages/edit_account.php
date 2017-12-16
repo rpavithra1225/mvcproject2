@@ -1,46 +1,86 @@
-<!doctype html>
+<?php
+include 'header.php';
+include 'navbar.php';
+//include 'todolistheader.php';
+?>
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-6">
+            <!-- form user info -->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">My Profile</h4>
+                </div>
+                <div class="card-body">
+                    <form class="form" role="form" autocomplete="off" id="form1">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" name="fname" id="first_name" required data-validation-required-message="Please enter your name." autocomplete="off"
+                                       value="<?php echo $data->fname; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" name="lname" id="last_name" required data-validation-required-message="Please enter your gender." autocomplete="off"
+                                       value="<?php echo $data->lname; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-7">
+                                <input type="email" class="form-control" name="email" id="email" required data-validation-required-message="Please enter your email address." autocomplete="off"
+                                       value="<?php echo $data->email; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Birthday</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" name = "birthday" id="birthday" data-date-format="yyyy-mm-dd" required data-validation-required-message="Please enter your birthday." autocomplete="off"
+                                       value="<?php echo $data->birthday; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Gender</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" name="gender" id="gender" required data-validation-required-message="Please enter your gender." autocomplete="off"
+                                       value="<?php echo $data->gender; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Phone</label>
+                            <div class="col-lg-7">
+                                <input type="tel" class="form-control" name="phone" id="phone" required data-validation-required-message="Please enter your phone number." autocomplete="off"
+                                       value="<?php echo $data->phone; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                            <div class="col-lg-7">
+                                <input type="password" class="form-control" name="password" id="password" required data-validation-required-message="Please enter your password" autocomplete="off"
+                                       value="<?php echo $data->password; ?>">
+                            </div>
+                        </div>
 
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
-</head>
-
-<body>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" id="form1" class="btn btn-secondary" value="Cancel"style="border-style:none; background:red; color: #fff">
+                                <input type="button" id="form1" action="index.php?page=accounts&action=edit" method="POST" class="btn btn-primary" value="Save Changes" style="border-style:none; background:#3ce7d0; color: #fff">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /form user info -->
+        </div>
+    </div>
+</div>
 
 <?php
-//this is how you print something  $data contains the record that was selected on the table.
+//print utility\htmlTable::genarateTableFromMultiArray($data);
+//include 'navbarfoot.php';
+include 'footer.php';
 
-//print_r($data);
 ?>
-
-<form action="index.php?page=accounts&action=edit&id=<?php echo $data->id; ?>" method="post" id="form2">
-
-    Email: <input type="text" name="email" value="<?php echo $data->email; ?>"><br>
-    First Name: <input type="text" name="fname" value="<?php echo $data->fname; ?>"><br>
-    Last Name: <input type="text" name="lname" value="<?php echo $data->lname; ?>"><br>
-    Phone: <input type="text" name="duedate" value="<?php echo $data->phone; ?>"><br>
-    Birthday: <input type="text" name="message" value="<?php echo $data->birthday; ?>"><br>
-    Gender: <input type="text" name="isdone" value="<?php echo $data->gender; ?>"><br>
-    <input type="submit" form = "form2" value="Submit">
-</form>
-
-<form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
-    <button type="submit" form="form1" value="delete">Delete</button>
-</form>
-
-
-
-
-<script src="js/scripts.js"></script>
-</body>
-</html>

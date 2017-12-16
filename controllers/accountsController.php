@@ -84,7 +84,6 @@ class accountsController extends http\controller
         session_start();
         $id = $_SESSION["userID"];
         $record = accounts::findOne($id);
-        echo $record->email;
         self::getTemplate('edit_account', $record);
 
     }
@@ -99,7 +98,7 @@ class accountsController extends http\controller
         $user->gender = $_POST['gender'];
         $user->save();
         echo "Successfully updated!";
-        //header("Location: index.php?page=tasks&action=all");
+        header("Location: index.php?page=tasks&action=all");
 
     }
 

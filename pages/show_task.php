@@ -5,7 +5,49 @@ include 'navbar.php';
 
 
 
-<div class="container">
+
+    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-md-8 col-md-offset-2">
+    <form>
+        <div class="form-group row">
+            <label for="inputmessage3" class="col-sm-2 col-form-label">Message</label>
+            <div class="col-sm-10">
+            <textarea class="form-control" id="inputmessage3" name="message" value="<?php echo $data->message; ?>" readonly></textarea>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" name="email" value="<?php echo $data->owneremail; ?>" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputId3" class="col-sm-2 col-form-label">Id</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputId3" name="id" value="<?php echo $data->id; ?>" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputcreateddate3" class="col-sm-2 col-form-label">Task Created Date</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputcreateddate3" name="createddate" value="<?php echo $data->createddate; ?>" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputduedate3" class="col-sm-2 col-form-label">Task Due date</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputduedate3" name="duedate" value="<?php echo $data->duedate; ?>" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputisdone3" class="col-sm-2 col-form-label">Whether Task has been completed or not?</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputisdone3" name="isdone" value="<?php echo $data->isdone; ?>" readonly>
+            </div>
+        </div>
+    </form>
+    </div>
+
 <form id="form1">
 
     ID: <input type="text" name="id" value="<?php {echo $data->id;} ?>" readonly><br>
