@@ -49,7 +49,7 @@ class accountsController extends http\controller
         if($_REQUEST['action']=='create'){
             if ($user == FALSE) {
                 $user = new account();
-                $id = accountsController::save($user);
+                $id = \utility\accountsControllerHelper::save($user);
                 if(isset($id)){
                     header("Location: index.php?page=tasks&action=all");
                 }else {
@@ -63,7 +63,7 @@ class accountsController extends http\controller
         }
 
         if($_REQUEST['action']=='edit'){
-            $user = accountsController::save($user);
+            $user = \utility\accountsControllerHelper::save($user);
 
             if(isset($user)){
                 self::getTemplate('show_account', $user);
@@ -77,12 +77,6 @@ class accountsController extends http\controller
             }
     }
 
-            //you may want to send the person to a
-            // login page or create a session and log them in
-            // and then send them to the task list page and a link to create tasks
-            //header("Location: index.php?page=accounts&action=all");
-
-
     public static function edit()
     {
         session_start();
@@ -90,20 +84,6 @@ class accountsController extends http\controller
         $record = accounts::findOne($id);
         self::getTemplate('edit_account', $record);
 
-    }
-//this is used to save the update form data
-    public static function save($user) {
-
-        $user->email = $_POST['email'];
-        $user->fname = $_POST['fname'];
-        $user->lname = $_POST['lname'];
-        $user->phone = $_POST['phone'];
-        $user->birthday = $_POST['birthday'];
-        $user->gender = $_POST['gender'];
-        $user->password = \utility\loginHelper::setPassword($_POST['password']);
-        $user->save();
-
-        return $user;
     }
 
     public static function delete() {
