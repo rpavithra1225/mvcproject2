@@ -2,7 +2,7 @@
     background-color: #3ce7d0;
 }
 
-.container {
+#maincon {
     width: 100%;
     padding-right: 10px;
     padding-left: 85px;
@@ -18,7 +18,7 @@
 .navbar .navbar-brand:focus {
     color: #0b0d56;
 }
-.navbar .navbar-text, {
+.navbar .navbar-text {
     color: #fcfdfd;
 }
 .navbar .navbar-nav .nav-link,

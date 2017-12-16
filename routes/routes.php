@@ -166,7 +166,7 @@ class routes
         $route->action = 'edit';
         $route->page = 'accounts';
         $route->controller = 'accountsController';
-        $route->method = 'save';
+        $route->method = 'store';
         $routes[] = $route;
 
         //this is the route for the reg form

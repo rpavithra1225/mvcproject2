@@ -1,10 +1,10 @@
-.row {
+#tablerow{
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -100px;
-    margin-left: -15px;
+    margin-right: -25px;
+    margin-left: 10px;
 }
 
     .checkbox {
@@ -33,14 +33,19 @@
 .panel-heading{
 padding-left: 20px;
 width: 100%;
-
 }
 
 #tablecon{
     background: rgb(248, 250, 252);
     margin: 20px 0 20px 0;
-    padding-bottom: 10px;
-    padding-top: 5px;
+    padding: 35px;
+
+}
+
+.starter-template{
+    padding-left:100px;
+    padding-right: 100px;
+    padding-top: 50px;
 }
 
 .list-group-item{

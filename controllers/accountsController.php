@@ -47,36 +47,28 @@ class accountsController extends http\controller
     {
         $user = accounts::findUserbyEmail($_REQUEST['email']);
 
-
-        if ($user == FALSE) {
-            $user = new account();
-            $user->email = $_POST['email'];
-            $user->fname = $_POST['fname'];
-            $user->lname = $_POST['lname'];
-            $user->phone = $_POST['phone'];
-            $user->birthday = $_POST['birthday'];
-            $user->gender = $_POST['gender'];
-            //$user->password = $_POST['password'];
-            //this creates the password
-            //this is a mistake you can fix...
-            //Turn the set password function into a static method on a utility class.
-            $user->password = \utility\loginHelper::setPassword($_POST['password']);
-            $user->save();
-
-            //you may want to send the person to a
-            // login page or create a session and log them in
-            // and then send them to the task list page and a link to create tasks
-            header("Location: index.php?page=accounts&action=all");
-
-        } else {
-            //You can make a template for errors called error.php
-            // and load the template here with the error you want to show.
-           // echo 'already registered';
-            $error = 'already registered';
-            self::getTemplate('error', $error);
-
+        if($_REQUEST['action']=='create'){
+            if ($user == FALSE) {
+                $user = new account();
+            }else{
+                $error = 'already registered';
+                self::getTemplate('error', $error);
+            }
         }
 
+        $user->email = $_POST['email'];
+        $user->fname = $_POST['fname'];
+        $user->lname = $_POST['lname'];
+        $user->phone = $_POST['phone'];
+        $user->birthday = $_POST['birthday'];
+        $user->gender = $_POST['gender'];
+        $user->password = \utility\loginHelper::setPassword($_POST['password']);
+        $user->save();
+
+                 //you may want to send the person to a
+            // login page or create a session and log them in
+            // and then send them to the task list page and a link to create tasks
+            //header("Location: index.php?page=accounts&action=all");
     }
 
     public static function edit()
@@ -126,10 +118,8 @@ class accountsController extends http\controller
             echo 'user not found';
         } else {
 
-            if($user->checkPassword($_POST['password']) == TRUE) {
-
-                echo 'login';
-
+            if($user->checkPassword($_POST['password']) == TRUE)
+            {
                 session_start();
                 $_SESSION["userID"] = $user->id;
                 //forward the user to the show all todos page

@@ -65,7 +65,7 @@ class htmlTable
            // foreach ($record as $key => $value) {
                 //print_r($record);
                 //echo ($record->message);
-                $tableGen .= "<div class='row'><div class='checkbox''>
+                $tableGen .= "<div class='row' id='tablerow'><div class='checkbox''>
                                 <input type='checkbox' />
                                 <label for='checkbox'>";
                 $tableGen.= $record->message;
