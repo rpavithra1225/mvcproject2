@@ -13,9 +13,6 @@ include 'navbar.php';
                     <h4 class="mb-0">My Profile</h4>
                 </div>
                 <div class="card-body">
-                    <div class="alert alert-success" role="alert">
-                        Profile updated successfully!
-                    </div>
                     <form class="form" role="form" autocomplete="off" id="form1">
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
@@ -85,7 +82,7 @@ include 'navbar.php';
 
 <?php
 //print utility\htmlTable::genarateTableFromMultiArray($data);
-//include 'navbarfoot.php';
+include 'navbarfoot.php';
 include 'footer.php';
 
 ?>

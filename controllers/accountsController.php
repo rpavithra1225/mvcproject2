@@ -43,33 +43,45 @@ class accountsController extends http\controller
 
     //this is the function to save the user the new user for registration
     public static function store()
-
     {
         $user = accounts::findUserbyEmail($_REQUEST['email']);
 
         if($_REQUEST['action']=='create'){
             if ($user == FALSE) {
                 $user = new account();
+                $id = accountsController::save($user);
+                if(isset($id)){
+                    header("Location: index.php?page=tasks&action=all");
+                }else {
+                    $error = 'Error in creating new account';
+                    self::getTemplate('error', $error);
+                }
             }else{
                 $error = 'already registered';
                 self::getTemplate('error', $error);
             }
         }
 
-        $user->email = $_POST['email'];
-        $user->fname = $_POST['fname'];
-        $user->lname = $_POST['lname'];
-        $user->phone = $_POST['phone'];
-        $user->birthday = $_POST['birthday'];
-        $user->gender = $_POST['gender'];
-        $user->password = \utility\loginHelper::setPassword($_POST['password']);
-        $user->save();
+        if($_REQUEST['action']=='edit'){
+            $user = accountsController::save($user);
 
-                 //you may want to send the person to a
+            if(isset($user)){
+                self::getTemplate('show_account', $user);
+            }else {
+                $error = 'Error in creating new account';
+                self::getTemplate('error', $error);
+            }
+        }else{
+                $error = 'already registered';
+                self::getTemplate('error', $error);
+            }
+    }
+
+            //you may want to send the person to a
             // login page or create a session and log them in
             // and then send them to the task list page and a link to create tasks
             //header("Location: index.php?page=accounts&action=all");
-    }
+
 
     public static function edit()
     {
@@ -80,18 +92,18 @@ class accountsController extends http\controller
 
     }
 //this is used to save the update form data
-    public static function save() {
-        $user = accounts::findOne($_REQUEST['id']);
+    public static function save($user) {
+
         $user->email = $_POST['email'];
         $user->fname = $_POST['fname'];
         $user->lname = $_POST['lname'];
         $user->phone = $_POST['phone'];
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
+        $user->password = \utility\loginHelper::setPassword($_POST['password']);
         $user->save();
-        echo "Successfully updated!";
-        header("Location: index.php?page=tasks&action=all");
 
+        return $user;
     }
 
     public static function delete() {
