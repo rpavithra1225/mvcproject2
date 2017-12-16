@@ -77,7 +77,7 @@ class routes
         $route->action = 'edit';
         $route->page = 'tasks';
         $route->controller = 'tasksController';
-        $route->method = 'save';
+        $route->method = 'store';
         $routes[] = $route;
 
         $route = new route();

@@ -66,32 +66,28 @@ class htmlTable
 
             foreach ($array as $record) {
                 $tableGen .= '<li class="list-group-item" style="border-style:none; border-bottom: 2px dotted rgba(0,0,0,.125); ">';
-                // foreach ($record as $key => $value) {
-                //print_r($record);
-                //echo ($record->message);
-                $tableGen .= "<div class='row' id='tablerow'><div class='checkbox''>
-                                <input type='checkbox' />
-                                <label for='checkbox'>";
+                $tableGen .= "<div class='row' id='tablerow'>";
+                $tableGen .= "<div class='row' id='checkbox'>";
+                $tableGen .="<input type='checkbox' />";
+                $tableGen .="<label for='checkbox'>";
                 $tableGen .= $record->message;
-                $tableGen .= "</label>
-                            </div>
-                            <div class='float-md-right'>";
-                //echo $record->id;
+                $tableGen .= "</label>";
+                $tableGen .="<label for='checkbox'>";
+                $tableGen .= $record->message;
+                $tableGen .= "</label>";
+
+                $tableGen .= "</div></div>";
+
+                /* Panel to show View, Edit, Delete icons */
+                $tableGen.="<div class='float-md-right'>";
                 $tableGen .= "<a href='index.php?page=tasks&action=delete&id=" . $record->id . "' method='POST'>";
                 $tableGen .= "<img src='img/delete1.png' width='20' height='20' alt='' align='right'></a>";
                 $tableGen .= "<a href='index.php?page=tasks&action=edit&id=" . $record->id . "'>";
                 $tableGen .= "<img src='img/edit1.png' width='20' height='20' alt='' align='right'></a>";
                 $tableGen .= "<a href='index.php?page=tasks&action=show&id=" . $record->id . "' method='POST'>";
                 $tableGen .= "<img src='img/view.png' width='20' height='20' alt='' align='right'></a>";
-                $tableGen .= "</div></div>";
-
-
-                /* if ($key == 'id') {
-                     $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a></td>';
-                 } else {
-                     $tableGen .= '<td>' . $value . '</td>';
-                 }*/
-                //}
+                $tableGen .= "</div>";
+                $tableGen .= "</div>";
                 $tableGen .= '</li>';
             }
 
@@ -99,6 +95,59 @@ class htmlTable
     }
         $tableGen.= '</div>';
         return $tableGen;
+    }
+
+    public static function genarateTableFromArray($array)
+    {
+        if ($array != null) {
+            $tableGen = '<table class="table table-hover">';
+            $tableGen .= '<thead>';
+            $tableGen .= '<tr>';
+            //this grabs the first element of the array so we can extract the field headings for the table
+            //$fieldHeadings = $array[0];
+            //this gets the page being viewed so that the table routes requests to the correct controller
+            $referingPage = $_REQUEST['page'];
+            $arr = array('Task Message', 'Created Date', 'Due Date', 'Status', 'Actions');
+            foreach ($arr as $heading) {
+                $tableGen .= '<th scope="col">' . $heading . '</th>';
+            }
+            $tableGen .= '</tr>';
+            $tableGen .= '</thead>';
+            foreach ($array as $record) {
+                print_r($record);
+                $tableGen .= '</tbody>';
+                $tableGen .= '<tr>';
+                $tableGen .= '<td>';
+                $tableGen .= $record->message;
+                $tableGen .= '</td>';
+                $tableGen .= '<td>';
+                $tableGen .= \utility\accountsControllerHelper::trimDate($record->createddate);
+                $tableGen .= '</td>';
+                $tableGen .= '<td>';
+                $tableGen .= \utility\accountsControllerHelper::trimDate($record->duedate);
+                $tableGen .= '</td>';
+                if ($record->isdone == '0') {
+                    $tableGen .= '<td class="table-danger">NOT DONE</td>';
+                } else {
+                    $tableGen .= '<td class="table-success">DONE</td>';
+                }
+                $tableGen .= '<td>';
+                $tableGen .= "<div class='row' id='actionrow'>";
+                $tableGen .= "<a href='index.php?page=tasks&action=show&id=" . $record->id . "' method='POST'>";
+                $tableGen .= "<img src='img/view.png' width='20' height='20' alt='' align='right'></a>";
+                $tableGen .= "<a href='index.php?page=tasks&action=edit&id=" . $record->id . "'>";
+                $tableGen .= "<img src='img/edit1.png' width='20' height='20' alt='' align='right'></a>";
+                $tableGen .= "<a href='index.php?page=tasks&action=delete&id=" . $record->id . "' method='POST'>";
+                $tableGen .= "<img src='img/delete1.png' width='20' height='20' alt='' align='right'></a>";
+                $tableGen .= "</div>";
+                $tableGen .= '</td>';
+                $tableGen .= '</tr>';
+            }
+            $tableGen .= '</tbody>';
+            $tableGen .= '</table>';
+
+            return $tableGen;
+        }
     }
 }
 

@@ -1,59 +1,16 @@
-#tablerow{
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -25px;
-    margin-left: 10px;
+#actionrow{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-    .checkbox {
-        width: 75%;
-        margin-right: 18px;
-        margin-left: 12px;
-        padding-left: 15px;
-    }
-
-.float-md-right {
-    width: 20%;
-    align-content: right;
-    }
-
-.container-fluid{
-    max-width: 2000px;
-    border-right: 1px;
-    border-left: 1px;
-    border-bottom: 1px;
-    border-color: #0b0d56;
-    padding-right: 0px;
-    padding-left: 0px;
-    background: rgb(248, 250, 252);
-}
-
-.panel-heading{
-padding-left: 20px;
-width: 100%;
-}
-
-#tablecon{
-    background: rgb(248, 250, 252);
-    margin: 20px 0 20px 0;
-    padding: 35px;
-
+.table {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .starter-template{
     padding-left:100px;
     padding-right: 100px;
-    padding-top: 50px;
+    padding-top: 80px;
 }
 
-.list-group-item{
-    border-bottom: 2px dotted rgba(0,0,0,.125);
-}
-
-panel-body .radio, .checkbox { display:inline-block;margin:0px; }
-.panel-body input[type=checkbox]:checked + label { text-decoration: line-through;color: rgb(128, 144, 160); }
-.list-group-item:hover, a.list-group-item:focus {text-decoration: none;background-color: #FCF4D9;}
-.list-group { margin-bottom:0px; }
-.panel-body { padding:0px; border-left: none; border-right: none; padding-left: unset; padding-right: unset;}

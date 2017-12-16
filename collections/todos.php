@@ -10,8 +10,8 @@ class todos extends database\collection
 
 
         $tableName = get_called_class();
-        $sql = 'SELECT * FROM ' . $tableName . ' WHERE ownerid = ?';
-
+        //$sql = 'select message \'Task Message\', createddate \'Created Date\', duedate \'Due Date\', isdone \'Status\', id \'Actions\' from ' . $tableName . ' where ownerid = ? order by id';
+        $sql = 'select * from ' . $tableName . ' where ownerid = ? order by id';
 
         //grab the only record for find one and return as an object
         $recordsSet = self::getResults($sql, $userid);

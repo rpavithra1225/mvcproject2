@@ -24,4 +24,11 @@ class accountsControllerHelper
         $user->save();
         return $user;
     }
+
+    public static function trimDate($date) {
+        date_default_timezone_set("Asia/Bangkok");
+        $date = new \DateTime($date);
+        $strip = $date->format('Y-m-d');
+        return $strip;
+    }
 }

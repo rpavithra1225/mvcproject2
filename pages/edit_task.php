@@ -1,47 +1,66 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-
 <?php
-//this is how you print something  $data contains the record that was selected on the table.
+include 'header.php';
+include 'navbar.php';
 
-print_r($data);
 ?>
+<div class="container" id="formcon">
+    <div class="row">
+        <div class="mx-auto col-md-8">
+            <!-- form user info -->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Update Task Details</h4>
+                </div>
+                <div class="card-body">
+                    <form class="form" role="form" autocomplete="off" id="form1">
+                        <div class="form-group row">
+                            <label class="col-lg-5 col-form-label form-control-label">Message</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name="message" id="message" required data-validation-required-message="Please enter task message." autocomplete="off"
+                                       value="<?php echo $data->message; ?>" >
+                            </div>
+                        </div>
 
-<form action="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>" method="post" id="form2">
+                        <div class="form-group row">
+                            <label class="col-lg-5 col-form-label form-control-label">Task Due Date</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name="duedate" id="duedate" required data-validation-required-message="Please enter due date." autocomplete="off"
+                                       value="<?php echo $data->duedate; ?>"  >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-5 col-form-label form-control-label">Whether Task has been completed or not?</label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" name = "isdone" id="isdone" required data-validation-required-message="Please enter task completion details." autocomplete="off"
+                                       value="<?php echo $data->isdone; ?>" >
+                            </div>
+                        </div>
 
-    Id: <input type="text" name="id" value="<?php echo $data->id; ?>" ><br>
-    Email: <input type="text" name="owneremail" value="<?php echo $data->owneremail; ?>"><br>
-    Owner Id: <input type="text" name="ownerid" value="<?php echo $data->ownerid; ?>"><br>
-    Task Created Date: <input type="text" name="createddate" value="<?php echo $data->createddate; ?>"><br>
-    Task Due Date: <input type="text" name="duedate" value="<?php echo $data->duedate; ?>"><br>
-    Task Message: <input type="text" name="message" value="<?php echo $data->message; ?>"><br>
-    Whether task has been completed?: <input type="text" name="isdone" value="<?php echo $data->isdone; ?>"><br>
-    <input type="submit" form = "form2" value="Submit">
-</form>
+                        <div class="form-group row">
+                            <!--<label class="col-lg-3 col-form-label form-control-label"></label>-->
+                            <div class="col-lg-10">
+                                <!-- <button type="button" id="form1" class="btn btn-secondary" value="Cancel"style="border-style:none; background:red; color: #fff">-->
+                                <button type="submit"
+                                       id="form1"
+                                       formaction="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?>"
+                                        formmethod="POST"
+                                       class="btn btn-primary btn-sm"
+                                       style="border-style:none; background:#3ce7d0; color: #fff;height:30px;width:150px;">
+                                SAVE CHANGES </button>
+                                <label class="col-sm-1"></label>
+                                <button type="submit" id="form1" formaction="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " formmethod="post" class="btn btn-primary btn-sm" style="border-style:none; background:red; color: #fff;
+                                height:30px;width:150px;">DELETE</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /form user info -->
+        </div>
+    </div>
+</div>
 
-<form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
-    <button type="submit" form="form1" value="delete">Delete</button>
-</form>
-
-
-
-
-<script src="js/scripts.js"></script>
-</body>
-</html>
+    <?php
+    include 'navbarfoot.php';
+    include 'footer.php';
+    ?>

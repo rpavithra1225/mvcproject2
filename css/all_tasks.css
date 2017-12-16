@@ -1,7 +1,0 @@
-@media (min-width: 768px){}
-    .col-md-6 {
-        -ms-flex: 0 0 50%;
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-}

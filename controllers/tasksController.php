@@ -15,6 +15,8 @@ class tasksController extends http\controller
     public static function show()
     {
         $record = todos::findOne($_REQUEST['id']);
+        $record->createddate = \utility\accountsControllerHelper::trimDate($record->createddate);
+        $record->duedate = \utility\accountsControllerHelper::trimDate($record->duedate);
         self::getTemplate('show_task', $record);
     }
 
@@ -41,15 +43,14 @@ class tasksController extends http\controller
     public static function create()
     {
         session_start();
-        //$record['ownerid'] = $_SESSION['userID'];
         self::getTemplate('create_task');
     }
 
     //this is the function to view edit record form
     public static function edit()
     {
-        //echo'hi';
         $record = todos::findOne($_REQUEST['id']);
+        $record->duedate = \utility\accountsControllerHelper::trimDate($record->duedate);
         self::getTemplate('edit_task', $record);
     }
 
@@ -58,19 +59,19 @@ class tasksController extends http\controller
     {
         $todo = null;
         session_start();
-        if(isset($_POST['id'])){
-            $todo = todos::findOne($_POST['id']);
+        if(isset($_REQUEST['id'])){
+            $todo = todos::findOne($_REQUEST['id']);
         }
 
         if(is_null($todo)) {
             $todo = new todo();
             $todo->id = '';
         } else {
-            $todo->id=$_POST['id'];
+            $todo->id=$_REQUEST['id'];
         }
-            $todo->owneremail = $_POST['owneremail'];
+            $todo->owneremail = $_SESSION['email'];
             $todo->ownerid = $_SESSION['userID'];
-            $todo->createddate = date("Y-m-d");
+            //$todo->createddate = date("Y-m-d");
             $todo->duedate = $_POST['duedate'];
             $todo->message = $_POST['message'];
             $todo->isdone = $_POST['isdone'];

@@ -37,17 +37,10 @@ include 'navbar.php';
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-5 col-form-label form-control-label">Email</label>
-                            <div class="col-lg-6">
-                                <input type="email" class="form-control" name="email" id="email" required data-validation-required-message="Please enter email address." autocomplete="off"
-                                       placeholder="Enter Task Owner Email"  >
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label class="col-lg-5 col-form-label form-control-label">Whether Task has been completed or not?</label>
                             <div class="col-lg-6">
                                 <input type="text" class="form-control" name = "isdone" id="isdone" required data-validation-required-message="Please enter task completion details." autocomplete="off"
-                                       placeholder="Enter Task Completion Details">
+                                       placeholder="Enter Status 0-Not Done 1-Done">
                             </div>
                         </div>
 
