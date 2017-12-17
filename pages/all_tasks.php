@@ -8,7 +8,7 @@
     <div class="table" style="box-sizing: border-box;">
     <?php
         //print utility\htmlTable::genarateTableFromMultiArray($data);
-        print utility\htmlTable::genarateTableFromArray($data);
+        print utility\htmlTableGenerator::genarateTableFromArray($data);
     ?>
     </div><br>
 

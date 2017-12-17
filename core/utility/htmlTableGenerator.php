@@ -102,14 +102,7 @@ class htmlTable
             $tableGen = '<table class="table table-hover">';
             $tableGen .= '<thead>';
             $tableGen .= '<tr>';
-            //this grabs the first element of the array so we can extract the field headings for the table
-            //$fieldHeadings = $array[0];
-            //this gets the page being viewed so that the table routes requests to the correct controller
-            $referingPage = $_REQUEST['page'];
-            $arr = array('Task Message', 'Created Date', 'Due Date', 'Status', 'Actions');
-            foreach ($arr as $heading) {
-                $tableGen .= '<th scope="col">' . $heading . '</th>';
-            }
+            $tableGen .= \utility\htmlTableGenerator::getTableHeadings();
             $tableGen .= '</tr>';
             $tableGen .= '</thead>';
             foreach ($array as $record) {
