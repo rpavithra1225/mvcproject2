@@ -1,3 +1,7 @@
+<?php
+include 'header.php';
+?>
+
 <head>
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -97,11 +101,15 @@
         <!-- /.container -->
     </div>
 
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
-
 </body>
+
+<?php
+include "navbarfoot.php";
+include 'footer.php';
+?>
 

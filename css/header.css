@@ -1,9 +1,16 @@
 body{
-
-    overflow-x: hidden;
-    font-family: 'Dosis', sans-serif;
-      /* Full height */
-    height: 100%;
-
-
+  font-family: 'Dosis', sans-serif;
 }
+
+.bg-overlay {
+    background: url("../img/aqua.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 100%;
+    padding-left: 450px;
+    padding-right: 200px;
+    padding-top: 50px;
+}
+

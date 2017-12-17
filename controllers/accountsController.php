@@ -127,6 +127,10 @@ class accountsController extends http\controller
         }
     }
 
+    public static function showLogin() {
+        self::getTemplate('login');
+    }
+
     public static function logout(){
         if (!isset($_SESSION))
         {

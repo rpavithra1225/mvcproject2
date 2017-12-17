@@ -56,7 +56,6 @@ class htmlTable
     }
 
     public static function generateListFromArray($array){
-        //print_r($array[0]);
         $referingPage = $_REQUEST['page'];
         $tableGen = '';
         if($array!=null) {
@@ -114,7 +113,6 @@ class htmlTable
             $tableGen .= '</tr>';
             $tableGen .= '</thead>';
             foreach ($array as $record) {
-                print_r($record);
                 $tableGen .= '</tbody>';
                 $tableGen .= '<tr>';
                 $tableGen .= '<td>';

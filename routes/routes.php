@@ -131,6 +131,14 @@ class routes
 
         $route = new route();
         $route->http_method = 'GET';
+        $route->action = 'login';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'showLogin';
+        $routes[] = $route;
+
+        $route = new route();
+        $route->http_method = 'GET';
         $route->action = 'logout';
         $route->page = 'accounts';
         $route->controller = 'accountsController';
