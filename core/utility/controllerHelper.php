@@ -3,7 +3,7 @@
 namespace utility;
 //namespace MyProject\mvcName;
 
-class accountsControllerHelper
+class controllerHelper
 {
     public static function setPassword($password) {
 
@@ -12,6 +12,19 @@ class accountsControllerHelper
 
     }
 
+    public static function setSessionVariables($user){
+        session_start();
+        $_SESSION["userID"] = $user->id;
+        $_SESSION['email']=$user->email;
+    }
+
+    public static function getSessionID(){
+        session_start();
+        return $_SESSION["userID"];
+    }
+    public static function getHeader($str){
+        header("$str");
+    }
     public static function save($user) {
 
         $user->email = $_POST['email'];
@@ -30,5 +43,9 @@ class accountsControllerHelper
         $date = new \DateTime($date);
         $strip = $date->format('Y-m-d');
         return $strip;
+    }
+
+    public static function getErrorTemplate($error){
+        self::getTemplate('error', $error);
     }
 }

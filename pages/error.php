@@ -1,14 +1,18 @@
 <?php
 include 'header.php';
-include 'navbar.php';
 ?>
 
 
 <body>
 
+<main role="main" class="container" >
+    <div class="starter-template">
+
 <h3 style="color: red"><i><?php echo $data ?></i></h3>
 
+    </div>
+</main>
+
 <?php
-include 'navbarfoot.php';
 include 'footer.php';
 ?>
