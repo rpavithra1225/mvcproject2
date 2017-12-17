@@ -38,6 +38,16 @@ class controllerHelper
         return $user;
     }
 
+    public static function todoSave($todo){
+        session_start();
+        $todo->owneremail = $_SESSION['email'];
+        $todo->ownerid = $_SESSION['userID'];
+        $todo->duedate = $_POST['duedate'];
+        $todo->message = $_POST['message'];
+        $todo->isdone = $_POST['isdone'];
+        $todo->save();
+    }
+
     public static function trimDate($date) {
         date_default_timezone_set("Asia/Bangkok");
         $date = new \DateTime($date);
@@ -45,7 +55,14 @@ class controllerHelper
         return $strip;
     }
 
-    public static function getErrorTemplate($error){
-        self::getTemplate('error', $error);
+    public static function getRecordWithTrimmedDates($record){
+        $record->createddate = \utility\controllerHelper::trimDate($record->createddate);
+        $record->duedate = \utility\controllerHelper::trimDate($record->duedate);
+        return $record;
+    }
+
+    public static function getCurrentDate() {
+        date_default_timezone_set("Asia/Bangkok");
+        return date('Y-m-d');;
     }
 }

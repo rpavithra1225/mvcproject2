@@ -33,10 +33,10 @@ class accountsController extends http\controller
                     \utility\controllerHelper::setSessionVariables($user);
                     \utility\controllerHelper::getHeader("Location: index.php?page=tasks&action=all");
                 }else {
-                    \utility\controllerHelper::getErrorTemplate('Error in creating new account');
+                    accountsController::getErrorTemplate('Error in creating new account');
                 }
             }else{
-                \utility\controllerHelper::getErrorTemplate('User account already exists');
+                accountsController::getErrorTemplate('User account already exists');
             }
         }
 
@@ -46,10 +46,10 @@ class accountsController extends http\controller
             if(isset($user)){
                 self::getTemplate('show_account', $user);
             }else {
-                \utility\controllerHelper::getErrorTemplate('Error in creating new account');
+                accountsController::getErrorTemplate('Error in creating new account');
             }
         }else{
-            \utility\controllerHelper::getErrorTemplate('User account already exists');
+            accountsController::getErrorTemplate('User account already exists');
             }
     }
 
@@ -72,7 +72,7 @@ class accountsController extends http\controller
        $user = accounts::findUserbyEmail($_REQUEST['email']);
 
         if ($user == FALSE) {
-            \utility\controllerHelper::getErrorTemplate('User account not found.');
+            accountsController::getErrorTemplate('User account not found.');
         } else {
 
             if($user->checkPassword($_POST['password']) == TRUE)
@@ -80,7 +80,7 @@ class accountsController extends http\controller
                 \utility\controllerHelper::setSessionVariables($user);
                 \utility\controllerHelper::getHeader("Location: index.php?page=tasks&action=all");
             } else {
-                \utility\controllerHelper::getErrorTemplate('Password does not match');
+                accountsController::getErrorTemplate('Password does not match');
             }
 
         }
@@ -98,4 +98,7 @@ class accountsController extends http\controller
         \utility\controllerHelper::getHeader("Location: index.php?page=homepage");
     }
 
+    public static function getErrorTemplate($error){
+        self::getTemplate('error', $error);
+    }
 }

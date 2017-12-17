@@ -37,6 +37,7 @@ final class account extends \database\model
         $err .= \utility\modelHelper::validateText($this->fname);
         $err .= \utility\modelHelper::validateText($this->lname);
         $err .= \utility\modelHelper::validateNum($this->phone);
+        $err .= \utility\modelHelper::validateNum($this->gender);
         $err .= \utility\modelHelper::validatePassword($this->password);
 
         return $err;

@@ -22,10 +22,13 @@ class modelHelper
         return $err;
     }
 
-    public static function validateDate($date) {
+    public static function validateDate($duedate,$createddate) {
             $err='';
-            if(!preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $date)){
-                $err = "<br> The format of the date should be YYYY-MM-DD";
+            if(!preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $duedate)){
+                $err.= "<br> The format of the date should be YYYY-MM-DD";
+            }
+            if(strtotime($duedate) < strtotime($createddate)){
+                $err.= "<br> Enter a valid due date";
             }
             return $err;
     }
@@ -49,13 +52,9 @@ class modelHelper
     public static function validateGender($gender){
 
         $err='';
-       // if($gender != 'Male' || $gender != 'male' || $gender != 'Female' || $gender != 'female'){
-        if($gender != 'female') {
-            $err ="<br> Gender should be male or female";
-        } elseif($gender != 'Female'){
-            $err ="<br> Gender should be male or female";
-        }else {
-            $err ='';
+        $values = array('Male','male','female','Female');
+        if(!in_array($gender,$values)){
+            $err ="<br> Enter valid entry 0 or 1";
         }
         return $err;
     }
@@ -63,7 +62,7 @@ class modelHelper
     public static function validateEmail($email){
 
         $err='';
-        if($email == '' || filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $err ="<br> Enter valid email address";
         }
         return $err;
@@ -71,7 +70,9 @@ class modelHelper
 
     public static function validateIsdone($isdone){
         $err='';
-        if($isdone != '0' || $isdone != '1'){
+        $values = array('0','1');
+
+        if(!in_array($isdone,$values)){
             $err ="<br> Enter valid entry 0 or 1";
         }
         return $err;

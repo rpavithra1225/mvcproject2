@@ -119,10 +119,10 @@ class htmlTable
                 $tableGen .= $record->message;
                 $tableGen .= '</td>';
                 $tableGen .= '<td>';
-                $tableGen .= \utility\accountsControllerHelper::trimDate($record->createddate);
+                $tableGen .= \utility\controllerHelper::trimDate($record->createddate);
                 $tableGen .= '</td>';
                 $tableGen .= '<td>';
-                $tableGen .= \utility\accountsControllerHelper::trimDate($record->duedate);
+                $tableGen .= \utility\controllerHelper::trimDate($record->duedate);
                 $tableGen .= '</td>';
                 if ($record->isdone == '0') {
                     $tableGen .= '<td class="table-danger">NOT DONE</td>';
