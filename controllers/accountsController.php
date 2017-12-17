@@ -45,12 +45,12 @@ class accountsController extends http\controller
     public static function store()
     {
         $user = accounts::findUserbyEmail($_REQUEST['email']);
-        // print_r($user);
-
+        
         if($_REQUEST['action']=='register'){
             if ($user == FALSE) {
                 $user = new account();
                 $id = \utility\accountsControllerHelper::save($user);
+                echo isset($id);
                 if(isset($id)){
                     session_start();
                     $_SESSION["userID"] = $user->id;

@@ -20,4 +20,5 @@
     </div>
     <?php
         include 'navbarfoot.php';
+        include 'footer.php';
     ?>
