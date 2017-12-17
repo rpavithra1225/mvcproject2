@@ -45,15 +45,15 @@ class accountsController extends http\controller
     public static function store()
     {
         $user = accounts::findUserbyEmail($_REQUEST['email']);
-        
+
         if($_REQUEST['action']=='register'){
             if ($user == FALSE) {
                 $user = new account();
-                $id = \utility\accountsControllerHelper::save($user);
-                echo isset($id);
-                if(isset($id)){
+                $user = \utility\accountsControllerHelper::save($user);
+                if(isset($user)){
                     session_start();
                     $_SESSION["userID"] = $user->id;
+                    $_SESSION['email']=$user->email;
                     header("Location: index.php?page=tasks&action=all");
                 }else {
                     $error = 'Error in creating new account';

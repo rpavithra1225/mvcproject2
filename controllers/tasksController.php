@@ -24,21 +24,12 @@ class tasksController extends http\controller
 
     public static function all()
     {
-        //$records = todos::findAll();
         session_start();
         $userID = $_SESSION['userID'];
 
         $records = todos::findTasksbyID($userID);
-        //if($records != null) {
-            self::getTemplate('all_tasks', $records);
-        //}else
-           // echo 'You have finished all your tasks in the list!';
-
+        self::getTemplate('all_tasks', $records);
     }
-    //to call the show function the url is called with a post to: index.php?page=task&action=create
-    //this is a function to create new tasks
-
-    //you should check the notes on the project posted in moodle for how to use active record here
 
     public static function create()
     {

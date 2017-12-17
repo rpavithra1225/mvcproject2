@@ -28,7 +28,7 @@ include 'navbar.php';
                                        value="<?php echo $data->duedate; ?>"  >
                             </div>
                         </div>
-                        
+
                         <div class="form-group row">
                             <label class="col-lg-5 col-form-label form-control-label">Whether Task has been completed or not?</label>
                             <div class="col-lg-6">

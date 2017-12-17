@@ -6,14 +6,12 @@ use http\controller;
 abstract class model
 {
 
-    public function save()
-    {
+    public function save() {
 
-        if($this->validate() == FALSE) {
-            echo 'failed validation';
+        if($this->validate() != '' ) {
+            echo '<br>Failed validation. The reason is:'.$this->validate();
             exit;
         }
-
 
         if ($this->id != '') {
             $sql = $this->update();
@@ -41,8 +39,6 @@ abstract class model
             $this->id = $db->lastInsertId();
 
         }
-
-
         return $this->id;
         }
 

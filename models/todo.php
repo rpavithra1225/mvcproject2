@@ -17,6 +17,18 @@ final class todo extends database\model
         $tableName = 'todos';
         return $tableName;
     }
+
+    public function validate()
+    {
+        $err = '';
+
+        $err .= \utility\modelHelper::validateEmail($this->owneremail);
+        $err .= \utility\modelHelper::validateDate($this->duedate);
+        $err .= \utility\modelHelper::validateIsdone($this->isdone);
+        $err .= \utility\modelHelper::validateMessage($this->message);
+
+        return $err;
+    }
 }
 
 ?>

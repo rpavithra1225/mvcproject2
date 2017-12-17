@@ -1,7 +1,5 @@
 <?php
-
-include 'header.php'
-    ?>
+include 'header.php' ?>
 
     <body class="bg">
     <div class="container" id="formcon">
@@ -77,6 +75,7 @@ include 'header.php'
         </div>
     </div>
 </div>
+
 <?php
 include 'footer.php';
 ?>
