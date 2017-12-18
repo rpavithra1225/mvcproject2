@@ -11,5 +11,4 @@ interface iModel
     public function delete();
     public function update();
 }
-
 ?>
