@@ -3,7 +3,7 @@
         include 'navbar.php';
     ?>
 
-    <div class="container" style="background: aliceblue; padding:50px">
+    <div class="container" style="background: aliceblue; padding:20px">
         <h4><i>To-Do List</i></h4>
     <div class="table" style="box-sizing: border-box;">
     <?php
