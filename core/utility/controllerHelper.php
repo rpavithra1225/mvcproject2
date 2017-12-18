@@ -31,7 +31,15 @@ class controllerHelper
         $user->phone = $_POST['phone'];
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
-        $user->password = \utility\controllerHelper::setPassword($_POST['password']);
+
+        $oldPassword='';
+        if(isset($user->password)){$oldPassword = $user->password;}
+        $newPassword = $_POST['password'];
+
+        if($oldPassword != $newPassword) {
+            $user->password = \utility\controllerHelper::setPassword($_POST['password']);
+        }
+
         $user->save();
         return $user;
     }

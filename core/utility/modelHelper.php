@@ -1,7 +1,6 @@
 <?php
 
 namespace utility;
-//namespace MyProject\mvcName;
 
 class modelHelper
 {
@@ -24,7 +23,7 @@ class modelHelper
             }
 
             if(strlen($pwd)<6){
-                $err.= "<br> PAssword is too short";
+                $err.= "<br> Password is too short";
             }
         return $err;
     }
@@ -34,6 +33,14 @@ class modelHelper
         $err = '';
         if (!preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $duedate)) {
             $err .= "<br> The format of the date should be YYYY-MM-DD";
+        }
+        return $err;
+    }
+
+    public static function checkName($fname,$lname){
+        $err = '';
+        if ($fname == $lname) {
+            $err .= "<br> First name cannot be same as last name";
         }
         return $err;
     }
@@ -49,7 +56,6 @@ class modelHelper
     }
 
     public static function validateNum($num){
-
             $err='';
             if(!ctype_digit($num)){
                 $err ="<br> The phone number should be all digits";
@@ -69,7 +75,7 @@ class modelHelper
         $err='';
         $values = array('Male','male','female','Female');
         if(!in_array($gender,$values)){
-            $err ="<br> Enter valid entry 0 or 1";
+            $err ="<br> Enter valid entry male or female";
         }
         return $err;
     }
@@ -77,7 +83,7 @@ class modelHelper
     public static function validateEmail($email){
 
         $err='';
-        if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $err ="<br> Enter valid email address";
         }
         return $err;

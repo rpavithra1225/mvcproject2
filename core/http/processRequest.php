@@ -18,11 +18,9 @@ class processRequest
         $request = requestHelper::getRequest();
         $routes = \routesHelper::getRoutes();
 
-        echo $request->method;
-        echo $request->page;
-        echo $request->action;
-        $foundRoute = NULL;
+        //echo $request->method.$request->page.$request->action;
 
+        $foundRoute = NULL;
         $foundRoute = requestHelper::findRoute($request,$routes);
         if (is_null($foundRoute)) {
             requestHelper::getNotFoundTemplate();

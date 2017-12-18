@@ -16,7 +16,7 @@ include 'navbar.php';
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-8">
-                                <input type="text" class="form-control" name="fname" id="first_name" required data-validation-required-message="Please enter your name." autocomplete="off"
+                                <input type="text" class="form-control" name="fname" id="fname" required data-validation-required-message="Please enter your gender." autocomplete="off"
                                        value="<?php echo $data->fname; ?>">
                             </div>
                         </div>
@@ -80,8 +80,6 @@ include 'navbar.php';
 </div>
 
 <?php
-//print utility\htmlTable::genarateTableFromMultiArray($data);
-include 'navbarfoot.php';
-include 'footer.php';
-
+    include 'navbarfoot.php';
+    include 'footer.php';
 ?>

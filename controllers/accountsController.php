@@ -42,7 +42,7 @@ class accountsController extends http\controller
 
         if($_REQUEST['action']=='edit'){
             $user = \utility\controllerHelper::save($user);
-             self::getTemplate('show_account', $user);
+            \utility\controllerHelper::getHeader("Location: index.php?page=accounts&action=show");
         }
     }
 

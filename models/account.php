@@ -23,23 +23,20 @@ final class account extends \database\model
     public function validate()
     {
         $err = '';
-
-        echo $this->phone.'hi'.$this->email;
-
         $err .= \utility\modelHelper::validateDate($this->birthday);
         $err .= \utility\modelHelper::validateEmail($this->email);
         $err .= \utility\modelHelper::validateText($this->fname);
         $err .= \utility\modelHelper::validateText($this->lname);
+        $err .= \utility\modelHelper::checkName($this->fname,$this->lname);
         $err .= \utility\modelHelper::validateNum($this->phone);
-        $err .= \utility\modelHelper::validateNum($this->gender);
+        $err .= \utility\modelHelper::validateGender($this->gender);
         $err .= \utility\modelHelper::validatePassword($this->password);
 
         return $err;
     }
 
      public function checkPassword($LoginPassword) {
-        return password_verify($LoginPassword, $this->password);
-            //hash_equals($this->password,crypt($LoginPassword,$this->password));
+        return hash_equals($this->password,crypt($LoginPassword,$this->password));
     }
 
 }
