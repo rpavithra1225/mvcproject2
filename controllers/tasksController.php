@@ -5,7 +5,7 @@ class tasksController extends http\controller
     public static function show()
     {
         $record = todos::findOne($_REQUEST['id']);
-        $record = \utility\accountsControllerHelper::getRecordWithTrimmedDates($record);
+        $record = \utility\controllerHelper::getRecordWithTrimmedDates($record);
         self::getTemplate('show_task', $record);
     }
 
