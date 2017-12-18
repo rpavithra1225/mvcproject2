@@ -17,7 +17,7 @@ final class todo extends database\model
     public function validate()
     {
         $err = '';
-        $err .= \utility\modelHelper::validateDate($this->duedate,$this->createddate);
+        $err .= \utility\modelHelper::checkDateValidity($this->duedate,$this->createddate);
         $err .= \utility\modelHelper::validateDate($this->duedate);
         $err .= \utility\modelHelper::validateIsdone($this->isdone);
         $err .= \utility\modelHelper::validateMessage($this->message);

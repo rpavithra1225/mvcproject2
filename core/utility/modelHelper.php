@@ -50,7 +50,7 @@ class modelHelper
         $err = '';
         date_default_timezone_set("Asia/Bangkok");
         if(strtotime($duedate) < strtotime($createddate)){
-            $err.= "<br> Enter a valid due date";
+            $err.= "<br> Enter a valid due date. Due datemust be greater than created date";
         }
         return $err;
     }
