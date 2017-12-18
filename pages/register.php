@@ -58,7 +58,7 @@ include 'header.php' ?>
                             <label class="col-lg-3 col-form-label form-control-label">Password</label>
                             <div class="col-lg-8">
                                 <input type="password" class="form-control" name="password" id="password" required data-validation-required-message="Please enter your password" autocomplete="off"
-                                       placeholder="Enter Password" ?>
+                                       placeholder="Enter Password" minlength="6"?>
                             </div>
                         </div>
 

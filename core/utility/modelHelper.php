@@ -14,12 +14,16 @@ class modelHelper
     public static function validatePassword($pwd){
 
             $err='';
-            if( !preg_match("#[0-9]+#", $pwd) ) {
+            /*if( !preg_match("#[0-9]+#", $pwd) ) {
                 $err .= "<br> Password must include at least one number! ";
             }
 
             if( !preg_match("#[a-z]+#", $pwd) ) {
                 $err .= "<br> Password must include at least one letter! ";
+            }*/
+
+            if (!preg_match('/[a-z0-9A-Z]/',$pwd)){
+                 $err .= "<br> Password must include at least one letter and one number";
             }
 
             if(strlen($pwd)<6){
