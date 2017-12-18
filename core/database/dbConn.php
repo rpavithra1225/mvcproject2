@@ -4,10 +4,8 @@ namespace database;
 //singleton pattern
 class dbConn
 {
-    //variable to hold connection object.
-    protected static $db;
 
-    //private construct - class cannot be instatiated externally.
+    protected static $db;
     private function __construct()
     {
         try {
@@ -23,12 +21,9 @@ class dbConn
     // get connection function. Static method - accessible without instantiation
     public static function getConnection()
     {
-        //Guarantees single instance, if no connection object exists then create one.
         if (!self::$db) {
-            //new connection object.
             new dbConn();
         }
-        //return connection.
         return self::$db;
     }
 }

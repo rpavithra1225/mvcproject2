@@ -37,12 +37,9 @@ abstract class collection
         if ($statement->rowCount() > 0) {
             $statement->setFetchMode(\PDO::FETCH_CLASS, $class);
             $recordsSet = $statement->fetchAll();
-
         } else {
             $recordsSet = NULL;
-
         }
-
         return $recordsSet;
     }
 
@@ -50,9 +47,8 @@ abstract class collection
     {
         $tableName = get_called_class();
         $sql = 'SELECT * FROM ' . $tableName . ' WHERE id = ?';
-        //grab the only record for find one and return as an object
-        $recordsSet = self::getResults($sql, $id);
 
+        $recordsSet = self::getResults($sql, $id);
         if (is_null($recordsSet)) {
             return FALSE;
         } else {

@@ -42,15 +42,8 @@ class accountsController extends http\controller
 
         if($_REQUEST['action']=='edit'){
             $user = \utility\controllerHelper::save($user);
-
-            if(isset($user)){
-                self::getTemplate('show_account', $user);
-            }else {
-                accountsController::getErrorTemplate('Error in creating new account');
-            }
-        }else{
-            accountsController::getErrorTemplate('User account already exists');
-            }
+             self::getTemplate('show_account', $user);
+        }
     }
 
     public static function edit()

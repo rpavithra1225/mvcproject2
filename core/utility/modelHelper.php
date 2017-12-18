@@ -5,6 +5,13 @@ namespace utility;
 
 class modelHelper
 {
+    public static function getValidation($data){
+        if($data != '' ) {
+            echo '<br>Failed validation. The reason is:'.$data;
+            exit;
+        }
+    }
+
     public static function validatePassword($pwd){
 
             $err='';
@@ -22,15 +29,23 @@ class modelHelper
         return $err;
     }
 
-    public static function validateDate($duedate,$createddate) {
-            $err='';
-            if(!preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $duedate)){
-                $err.= "<br> The format of the date should be YYYY-MM-DD";
-            }
-            if(strtotime($duedate) < strtotime($createddate)){
-                $err.= "<br> Enter a valid due date";
-            }
-            return $err;
+    public static function validateDate($duedate)
+    {
+        $err = '';
+        if (!preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $duedate)) {
+            $err .= "<br> The format of the date should be YYYY-MM-DD";
+        }
+        return $err;
+    }
+
+    public static function checkDateValidity($duedate,$createddate)
+    {
+        $err = '';
+        date_default_timezone_set("Asia/Bangkok");
+        if(strtotime($duedate) < strtotime($createddate)){
+            $err.= "<br> Enter a valid due date";
+        }
+        return $err;
     }
 
     public static function validateNum($num){

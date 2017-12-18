@@ -1,12 +1,10 @@
 <?php
 
 namespace utility;
-//namespace MyProject\mvcName;
 
 class controllerHelper
 {
     public static function setPassword($password) {
-
         $password = password_hash($password, PASSWORD_DEFAULT);
         return $password;
 
@@ -33,7 +31,7 @@ class controllerHelper
         $user->phone = $_POST['phone'];
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
-        $user->password = \utility\accountsControllerHelper::setPassword($_POST['password']);
+        $user->password = \utility\controllerHelper::setPassword($_POST['password']);
         $user->save();
         return $user;
     }

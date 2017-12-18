@@ -11,22 +11,27 @@ final class todo extends database\model
     public $isdone;
     protected static $modelName = 'todo';
 
-    public static function getTablename()
-    {
 
-        $tableName = 'todos';
-        return $tableName;
-    }
+    /*abstract method enforced by the parent class : Model*/
 
     public function validate()
     {
         $err = '';
         $err .= \utility\modelHelper::validateDate($this->duedate,$this->createddate);
+        $err .= \utility\modelHelper::validateDate($this->duedate);
         $err .= \utility\modelHelper::validateIsdone($this->isdone);
         $err .= \utility\modelHelper::validateMessage($this->message);
 
         return $err;
     }
+
+    public static function getTablename()
+    {
+        $tableName = 'todos';
+        return $tableName;
+    }
+
+
 }
 
 ?>

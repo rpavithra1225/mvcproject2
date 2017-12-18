@@ -5,7 +5,6 @@ namespace http;
 class controller
 {
 
-
 //this gets the HTML template for the application and accepts the model.  The model array can be used in the template
     static public function getTemplate($template, $data = NULL)
     {

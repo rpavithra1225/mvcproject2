@@ -3,15 +3,23 @@ namespace database;
 
 use http\controller;
 
-abstract class model
+abstract class model implements iModel
 {
+    // Force Extending class to define this method
+    abstract public function validate();
 
     public function save() {
 
-        if($this->validate() != '' ) {
-            echo '<br>Failed validation. The reason is:'.$this->validate();
-            exit;
-        }
+        /*------added validation before saving to the DB ------*/
+        /*------ ------------------------------------------------------------------------
+        this will print appropriate validation error messages like the one below:
+
+            Failed validation. The reason is:
+            Enter a valid due date
+
+         --------------------------------------------------------------------------------*/
+        $data = $this->validate();
+        \utility\modelHelper::getValidation($data);
 
         if ($this->id != '') {
             $sql = $this->update();
@@ -25,9 +33,7 @@ abstract class model
         $array = get_object_vars($this);
 
         if ($INSERT == TRUE) {
-
             unset($array['id']);
-
         }
 
         foreach (array_flip($array) as $key => $value) {
@@ -35,17 +41,12 @@ abstract class model
         }
         $statement->execute();
         if ($INSERT == TRUE) {
-
             $this->id = $db->lastInsertId();
-
         }
         return $this->id;
         }
 
-
-
-    private function insert()
-    {
+    public function insert() {
 
         $modelName = static::$modelName;
         $tableName = $modelName::getTablename();
@@ -57,18 +58,11 @@ abstract class model
         return $sql;
     }
 
-    public function validate() {
-
-        return TRUE;
-    }
-
-    private function update()
-    {
+    public function update(){
 
         $modelName = static::$modelName;
         $tableName = $modelName::getTablename();
         $array = get_object_vars($this);
-
         $comma = " ";
         $sql = 'UPDATE ' . $tableName . ' SET ';
         foreach ($array as $key => $value) {
@@ -79,11 +73,9 @@ abstract class model
         }
         $sql .= ' WHERE id=' . $this->id;
         return $sql;
-
     }
 
-    public function delete()
-    {
+    public function delete() {
         $db = dbConn::getConnection();
         $modelName = static::$modelName;
         $tableName = $modelName::getTablename();
